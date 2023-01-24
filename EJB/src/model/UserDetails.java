@@ -60,4 +60,48 @@ public class UserDetails implements Serializable {
 		this.userlogin = userlogin;
 	}
 
+	@Override
+	public String toString() {
+		return "UserDetails [iduser=" + iduser + ", name=" + name + ", role=" + role + ", userlogin=" + userlogin + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + iduser;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
+		result = prime * result + ((userlogin == null) ? 0 : userlogin.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UserDetails other = (UserDetails) obj;
+		if (iduser != other.iduser)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
+		if (userlogin == null) {
+			if (other.userlogin != null)
+				return false;
+		} else if (!userlogin.equals(other.userlogin))
+			return false;
+		return true;
+	}
 }

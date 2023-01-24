@@ -61,4 +61,52 @@ public class Post implements Serializable {
 		this.userlogin = userlogin;
 	}
 
+	@Override
+	public String toString() {
+		return "Post [idpost=" + idpost + ", content=" + content + ", title=" + title + ", userlogin=" + userlogin
+				+ "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((content == null) ? 0 : content.hashCode());
+		result = prime * result + idpost;
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((userlogin == null) ? 0 : userlogin.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Post other = (Post) obj;
+		if (content == null) {
+			if (other.content != null)
+				return false;
+		} else if (!content.equals(other.content))
+			return false;
+		if (idpost != other.idpost)
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		if (userlogin == null) {
+			if (other.userlogin != null)
+				return false;
+		} else if (!userlogin.equals(other.userlogin))
+			return false;
+		return true;
+	}
+	
+	
+
 }
