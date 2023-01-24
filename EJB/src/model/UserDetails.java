@@ -14,8 +14,9 @@ public class UserDetails implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int iduser;
+
+	private String name;
 
 	private String role;
 
@@ -33,6 +34,14 @@ public class UserDetails implements Serializable {
 
 	public void setIduser(int iduser) {
 		this.iduser = iduser;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getRole() {

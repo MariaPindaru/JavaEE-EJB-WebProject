@@ -83,7 +83,6 @@ public class UserDAO implements UserDAORemote {
 	public void delete(int id) {
 		User user = entityManager.find(User.class, id);
 		entityManager.remove(user);
-
 	}
 
 	@Override

@@ -11,29 +11,36 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.UserDetailsDTO;
 import managedBean.LoginBean;
 
 @WebFilter("/adminFilter/*")
 public class AdminFilter implements Filter {
 
-	public static final String LOGIN_PAGE = "/index.xhtml";
+	public static final String USER_PAGE = "/user.xhtml";
 
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
 			throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
 		HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
+		
 		System.out.println("filter called");
-		LoginBean loginBean = (LoginBean) httpServletRequest.getSession().getAttribute("loginBean");
+		UserDetailsDTO details = (UserDetailsDTO) httpServletRequest.getSession().getAttribute("userDetailsDTO");
 
-		if (loginBean != null && loginBean.getUserDTO() != null) {
-			// and has the role admin
-
+		if (details.getRole().equals("admin")) {
 			System.out.println("admin logged");
 			filterChain.doFilter(servletRequest, servletResponse);
-		} else {
-			httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + LOGIN_PAGE);
+		}else {
+			System.out.println("regular user logged");
+			httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + USER_PAGE);			
 		}
+//		if (loginBean != null && loginBean.getUserDTO() != null) {
+//			System.out.println("admin logged");
+//			filterChain.doFilter(servletRequest, servletResponse);
+//		} else {
+//			httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + USER_PAGE);
+//		}
 	}
 
 	@Override

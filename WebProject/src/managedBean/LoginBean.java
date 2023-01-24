@@ -7,8 +7,10 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import dao.UserDAORemote;
+import dao.UserDetailsDAORemote;
 import dto.LoginDTO;
 import dto.UserDTO;
+import dto.UserDetailsDTO;
 import exception.LoginException;
 
 @ManagedBean
@@ -19,8 +21,13 @@ public class LoginBean {
 
 	@EJB
 	UserDAORemote userDAORemote;
+	
+	@EJB
+	UserDetailsDAORemote userDetailsDAORemote;
 
 	UserDTO userDTO;
+	
+	UserDetailsDTO userDetailsDTO;
 
 	public LoginDTO getLoginDTO() {
 		return loginDTO;
@@ -44,9 +51,10 @@ public class LoginBean {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		try {
 			userDTO = userDAORemote.loginUser(loginDTO);
+			userDetailsDTO = userDetailsDAORemote.findById(userDTO.getId());
 			facesContext.getExternalContext().getSessionMap().put("userDTO", userDTO);
-			// if userDTO is an admin
-			System.out.println("admin logged");
+			facesContext.getExternalContext().getSessionMap().put("userDetailsDTO", userDetailsDTO);
+			
 			return "/adminFilter/admin.xhtml?faces-redirect=true";
 
 		} catch (LoginException e) {
@@ -56,10 +64,24 @@ public class LoginBean {
 		}
 	}
 	
+	public UserDetailsDTO getUserDetailsDTO() {
+		return userDetailsDTO;
+	}
+
+	public void setUserDetailsDTO(UserDetailsDTO userDetailsDTO) {
+		this.userDetailsDTO = userDetailsDTO;
+	}
+
 	public String registerUser() {
 		System.out.println("Redirecting to register page..");
 
 		return "/register.xhtml?faces-redirect=true";
+	}
+	
+	public String changePassword() {
+		System.out.println("Redirecting to change password page..");
+
+		return "/changePassword.xhtml?faces-redirect=true";
 	}
 
 	public String logout() {

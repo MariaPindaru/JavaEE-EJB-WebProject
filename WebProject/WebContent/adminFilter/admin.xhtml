@@ -15,6 +15,27 @@
 		<h2 class="title-form-login">Admin page</h2>
 		<h:outputText value="Logged user: #{loginBean.loginDTO.username}" />
 		<br /> <br />
+		
+		<h:form label="forgotPasswordForm" class="form">
+			<h:commandButton class="btns" value="Add post"
+				action="#{loginBean.changePassword}"></h:commandButton>
+		</h:form>
+		
+		<h:form label="forgotPasswordForm" class="form">
+			<h:commandButton class="btns" value="Delete posts"
+				action="#{loginBean.changePassword}"></h:commandButton>
+		</h:form>
+
+		<h:form label="forgotPasswordForm" class="form">
+			<h:commandButton class="btns" value="Show my posts"
+				action="#{loginBean.changePassword}"></h:commandButton>
+		</h:form>
+				
+		<h:form label="forgotPasswordForm" class="form">
+			<h:commandButton class="btns" value="Show all posts"
+				action="#{loginBean.changePassword}"></h:commandButton>
+		</h:form>
+		
 	</div>
 </h:body>
 </html>

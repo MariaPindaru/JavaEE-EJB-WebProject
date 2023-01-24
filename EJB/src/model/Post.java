@@ -5,19 +5,19 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the news database table.
+ * The persistent class for the post database table.
  * 
  */
 @Entity
-@NamedQuery(name="News.findAll", query="SELECT n FROM News n")
-public class News implements Serializable {
+@NamedQuery(name="Post.findAll", query="SELECT p FROM Post p")
+public class Post implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idnews;
+	private int idpost;
 
-	private String description;
+	private String content;
 
 	private String title;
 
@@ -26,23 +26,23 @@ public class News implements Serializable {
 	@JoinColumn(name="writerid")
 	private User userlogin;
 
-	public News() {
+	public Post() {
 	}
 
-	public int getIdnews() {
-		return this.idnews;
+	public int getIdpost() {
+		return this.idpost;
 	}
 
-	public void setIdnews(int idnews) {
-		this.idnews = idnews;
+	public void setIdpost(int idpost) {
+		this.idpost = idpost;
 	}
 
-	public String getDescription() {
-		return this.description;
+	public String getContent() {
+		return this.content;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public String getTitle() {

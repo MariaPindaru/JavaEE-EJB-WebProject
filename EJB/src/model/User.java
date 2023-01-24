@@ -24,13 +24,13 @@ public class User implements Serializable {
 
 	private String username;
 
-	//bi-directional many-to-one association to News
-	@OneToMany(mappedBy="userlogin")
-	private List<News> news;
-
 	//bi-directional one-to-one association to UserDetails
 	@OneToOne(mappedBy="userlogin")
 	private UserDetails userdetail;
+
+	//bi-directional many-to-one association to Post
+	@OneToMany(mappedBy="userlogin")
+	private List<Post> posts;
 
 	public User() {
 	}
@@ -59,34 +59,34 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
-	public List<News> getNews() {
-		return this.news;
-	}
-
-	public void setNews(List<News> news) {
-		this.news = news;
-	}
-
-	public News addNew(News news) {
-		getNews().add(news);
-		news.setUserlogin(this);
-
-		return news;
-	}
-
-	public News removeNew(News news) {
-		getNews().remove(news);
-		news.setUserlogin(null);
-
-		return news;
-	}
-
 	public UserDetails getUserdetail() {
 		return this.userdetail;
 	}
 
 	public void setUserdetail(UserDetails userdetail) {
 		this.userdetail = userdetail;
+	}
+
+	public List<Post> getPosts() {
+		return this.posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	public Post addPost(Post post) {
+		getPosts().add(post);
+		post.setUserlogin(this);
+
+		return post;
+	}
+
+	public Post removePost(Post post) {
+		getPosts().remove(post);
+		post.setUserlogin(null);
+
+		return post;
 	}
 
 }
