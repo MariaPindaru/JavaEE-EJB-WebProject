@@ -53,7 +53,7 @@ public class RegisterBean {
 			return "/index.xhtml?faces-redirect=true";
 
 		} catch (LoginException e) {
-			System.out.println("Invalid username or password");
+			System.out.println("Something went wrong.");
 			facesContext.addMessage("registerForm", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.message(), null));
 			return null;
 		}

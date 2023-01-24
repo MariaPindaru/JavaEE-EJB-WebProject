@@ -43,5 +43,4 @@ public class UserBean {
 
 		return "/postDetails.xhtml?faces-redirect=true";
 	}
-
 }

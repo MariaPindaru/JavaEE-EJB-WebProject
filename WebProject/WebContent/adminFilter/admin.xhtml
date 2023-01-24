@@ -16,25 +16,45 @@
 		<h:outputText value="Logged admin: #{loginBean.loginDTO.username}" />
 		<br /> <br />
 
-		<h:form label="forgotPasswordForm" class="form">
+		<h:form label="addPostForm" class="form">
 			<h:commandButton class="btns" value="Add post"
-				action="#{loginBean.changePassword}"></h:commandButton>
+				action="#{adminBean.addPost}"></h:commandButton>
 		</h:form>
 
-		<h:form label="forgotPasswordForm" class="form">
-			<h:commandButton class="btns" value="Delete posts"
-				action="#{loginBean.changePassword}"></h:commandButton>
-		</h:form>
 
-		<h:form label="forgotPasswordForm" class="form">
-			<h:commandButton class="btns" value="Show my posts"
-				action="#{loginBean.changePassword}"></h:commandButton>
-		</h:form>
+		<h2>
+			<h:outputText value="Posts List"></h:outputText>
+		</h2>
+		<h:dataTable value="#{adminBean.getPosts()}" var="p">
+			<h:column>
+				<f:facet name="header">Title</f:facet>
+				<h:outputText value="#{p.title}" />
+			</h:column>
 
-		<h:form label="forgotPasswordForm" class="form">
-			<h:commandButton class="btns" value="Show all posts"
-				action="#{loginBean.changePassword}"></h:commandButton>
-		</h:form>
+			<h:column>
+				<f:facet name="header">Content</f:facet>
+				<h:outputText value="#{p.content}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Update</f:facet>
+				<h:form label="openPostForm" class="form">
+					<h:commandButton class="btns" value="Update post"
+						action="#{adminBean.openPost(p.id)}">
+					</h:commandButton>
+				</h:form>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Delete</f:facet>
+				<h:form label="openPostForm" class="form">
+					<h:commandButton class="btns" value="Delete"
+						action="#{adminBean.deletePost(p.id)}">
+					</h:commandButton>
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
 
 		<h:form label="logoutForm" class="form">
 			<h:commandButton class="btns" value="Logout"

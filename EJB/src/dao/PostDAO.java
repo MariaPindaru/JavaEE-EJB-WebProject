@@ -17,12 +17,12 @@ import util.EntityToDto;
 
 @Stateless
 @LocalBean
-public class PostDAO implements PostDAORemote{
+public class PostDAO implements PostDAORemote {
 	static final Logger LOGGER = Logger.getLogger(UserDAO.class.getName());
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	private EntityToDto entityToDTO = new EntityToDto();
 
 	private DtoToEntity dtoToEntity = new DtoToEntity();
@@ -30,6 +30,9 @@ public class PostDAO implements PostDAORemote{
 	@Override
 	public PostDTO findById(int id) {
 		Post post = entityManager.find(Post.class, id);
+		if (post == null) {
+			return null;
+		}
 		PostDTO postDTO = entityToDTO.convertPost(post);
 		return postDTO;
 	}
@@ -39,7 +42,6 @@ public class PostDAO implements PostDAORemote{
 		Query query = entityManager.createQuery("SELECT u FROM Post u");
 		@SuppressWarnings("unchecked")
 		List<Post> posts = query.getResultList();
-		System.out.println(posts.toString());
 		List<PostDTO> dtoPosts = new ArrayList<>();
 		for (Post post : posts) {
 			dtoPosts.add(entityToDTO.convertPost(post));
@@ -67,5 +69,19 @@ public class PostDAO implements PostDAORemote{
 	public void delete(int id) {
 		Post post = entityManager.find(Post.class, id);
 		entityManager.remove(post);
+	}
+
+	@Override
+	public List<PostDTO> getPostsByWriter(int id) {
+		Query query = entityManager.createQuery("SELECT u FROM Post u");
+		@SuppressWarnings("unchecked")
+		List<Post> posts = query.getResultList();
+		List<PostDTO> dtoPosts = new ArrayList<>();
+		for (Post post : posts) {
+			if (post.getUserlogin().getId() == id) {
+				dtoPosts.add(entityToDTO.convertPost(post));
+			}
+		}
+		return dtoPosts;
 	}
 }

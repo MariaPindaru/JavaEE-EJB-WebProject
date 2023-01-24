@@ -19,16 +19,25 @@
 			<h:outputText value="Post details"></h:outputText>
 		</h2>
 
-		<h2>
-			<h:outputText value="#{postBean.getPostDTO().title}"></h:outputText>
-		</h2>
+		<h:form label="savePostForm" class="form">
+			<h:panelGrid columns="2">
+				<h:outputLabel>Title:</h:outputLabel>
+				<h:inputText class="effect-input" required="true" label="Title"
+					placeholder="Title" validatorMessage="Enter title"
+					value="#{postBean.postDTO.title}"></h:inputText>
 
-		<h2>
-			<h:outputText value="#{postBean.postDTO.content}"></h:outputText>
-		</h2>
-
-		<br />
-		
+				<h:outputLabel>Content:</h:outputLabel>
+				<h:inputText class="effect-input" required="true" label="Content"
+					placeholder="Content" validatorMessage="Enter content"
+					value="#{postBean.postDTO.content}"></h:inputText>
+			</h:panelGrid>
+			<h:commandButton class="btns" value="Save"
+				action="#{postBean.Save}" />
+			<br />
+		</h:form>
+		<br/>
+		<br/>
+		<br/>
 		<h:form label="logoutForm" class="form">
 			<h:commandButton class="btns" value="Logout"
 				action="#{loginBean.logout}" />

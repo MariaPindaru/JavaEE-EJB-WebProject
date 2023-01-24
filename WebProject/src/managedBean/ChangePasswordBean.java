@@ -28,14 +28,6 @@ public class ChangePasswordBean {
 
 	UserDTO userDTO;
 
-	@PostConstruct
-	public void init() {
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		if (facesContext.getExternalContext().getFlash().get("user") != null) {
-			userDTO = (UserDTO) facesContext.getExternalContext().getFlash().get("user");
-		}
-	}
-
 	public String changePassword() {
 
 		LOGGER.log(Level.INFO, this.getClass().getName() + " Changing password: " + changePasswordDTO.toString());
