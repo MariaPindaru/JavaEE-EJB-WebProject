@@ -6,8 +6,8 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Login</title>
-	<h:outputStylesheet name="/css/login.css" />
+	<title>Post</title>
+	<h:outputStylesheet name="/css/style.css" />
 </h:head>
 <h:body>
 	<div id='centeredDiv'>
@@ -15,24 +15,23 @@
 		<h:outputText value="Logged user: #{loginBean.loginDTO.username}" />
 		<br /> <br />
 
-		<h2>
-			<h:outputText value="Post details"></h:outputText>
-		</h2>
-
-		<h2>
+			<h2>
+				<h:outputText value="Post details"></h:outputText>
+			</h2>
+		<hr></hr>
+		<h3>
 			<h:outputText value="#{postBean.getPostDTO().title}"></h:outputText>
-		</h2>
+		</h3>
 
-		<h2>
+		<h4>
 			<h:outputText value="#{postBean.postDTO.content}"></h:outputText>
-		</h2>
+		</h4>
 
 		<br />
-		
-		<h:form label="logoutForm" class="form">
-			<h:commandButton class="btns" value="Logout"
-				action="#{loginBean.logout}" />
-		</h:form>
+			<h:form label="logoutForm" class="form">
+				<h:commandButton class="btns" value="Logout"
+					action="#{loginBean.logout}" />
+			</h:form>
 
 	</div>
 </h:body>

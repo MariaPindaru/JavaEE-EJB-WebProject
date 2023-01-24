@@ -7,13 +7,14 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Login</title>
+	<title>Admin</title>
 	<h:outputStylesheet name="/css/style.css" />
 </h:head>
 <h:body>
-	<div id='centeredDiv'>
+	<div id='centeredDiv' style="width:500px">
 		<h2 class="title-form-login">Admin page</h2>
-		<h:outputText value="Logged admin: #{loginBean.loginDTO.username}" />
+		<hr></hr>
+		<h:outputText value="Logged user: #{loginBean.loginDTO.username}" />
 		<br /> <br />
 
 		<h:form label="addPostForm" class="form">
@@ -21,11 +22,12 @@
 				action="#{adminBean.addPost}"></h:commandButton>
 		</h:form>
 
-
 		<h2>
 			<h:outputText value="Posts List"></h:outputText>
 		</h2>
-		<h:dataTable value="#{adminBean.getPosts()}" var="p">
+
+		<h:dataTable style="width:500px" value="#{adminBean.getPosts()}"
+			var="p">
 			<h:column>
 				<f:facet name="header">Title</f:facet>
 				<h:outputText value="#{p.title}" />
@@ -44,7 +46,7 @@
 					</h:commandButton>
 				</h:form>
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">Delete</f:facet>
 				<h:form label="openPostForm" class="form">
@@ -55,6 +57,8 @@
 			</h:column>
 
 		</h:dataTable>
+		
+		<br/><br/>
 
 		<h:form label="logoutForm" class="form">
 			<h:commandButton class="btns" value="Logout"

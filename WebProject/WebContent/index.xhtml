@@ -13,15 +13,13 @@
 
 	<div id='centeredDiv'>
 		<h:form label="loginForm" class="form">
-
-
 			<h2 class="title-form-login">Log in</h2>
 			<h:panelGrid columns="2">
 				<h:outputLabel>Username:</h:outputLabel>
 				<h:inputText class="effect-input" required="true" label="Username"
 					placeholder="Username" validatorMessage="Enter username"
 					value="#{loginBean.loginDTO.username}"></h:inputText>
-	
+
 				<h:outputLabel>Password:</h:outputLabel>
 				<h:inputSecret class="effect-input" label="Password" required="true"
 					placeholder="Password" validatorMessage="Enter password"
@@ -29,7 +27,7 @@
 			</h:panelGrid>
 			<br />
 			<br />
-			<h:commandButton class="btns" value="Login"
+			<h:commandButton id="btn" value="Login"
 				action="#{loginBean.loginUser}"></h:commandButton>
 
 			<br />
