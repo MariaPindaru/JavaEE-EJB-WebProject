@@ -17,23 +17,30 @@
 
 			<h2 class="title-form-register">Register</h2>
 			<br />
-			<h:inputText class="effect-input" required="true" label="Username"
-				placeholder="Username" validatorMessage="Enter username"
-				value="#{registerBean.registerDTO.username}"></h:inputText>
-			<br />
-			<br />
-			<h:inputSecret class="effect-input" label="Password" required="true"
-				placeholder="Password" validatorMessage="Enter password"
-				value="#{registerBean.registerDTO.password}"></h:inputSecret>
 
-			<br />
-			<br />
-			<h:inputSecret class="effect-input" label="Password" required="true"
-				placeholder="Repeat Password" validatorMessage="Enter password"
-				value="#{registerBean.registerDTO.repeatPassword}"></h:inputSecret>
-			<br />
-			<br />
+			<h:panelGrid columns="2">
+				<h:outputLabel>Username:</h:outputLabel>
+				<h:inputText class="effect-input" required="true" label="Username"
+					placeholder="Username" validatorMessage="Enter username"
+					value="#{registerBean.registerDTO.username}"></h:inputText>
 
+				<h:outputLabel>Name:</h:outputLabel>
+				<h:inputText class="effect-input" required="true" label="Name"
+					placeholder="Name" validatorMessage="Enter name"
+					value="#{registerBean.registerDTO.name}"></h:inputText>
+			
+				<h:outputLabel>Passowrd:</h:outputLabel>
+				<h:inputSecret class="effect-input" label="Password" required="true"
+					placeholder="Password" validatorMessage="Enter password"
+					value="#{registerBean.registerDTO.password}"></h:inputSecret>
+				
+				<h:outputLabel>Repeat passowrd:</h:outputLabel>
+				<h:inputSecret class="effect-input" label="Password" required="true"
+					placeholder="Repeat Password" validatorMessage="Enter password"
+					value="#{registerBean.registerDTO.repeatPassword}"></h:inputSecret>
+			</h:panelGrid>
+			<br />
+			<br />
 			<h:commandButton class="btns" value="Register"
 				action="#{registerBean.registerUser}"></h:commandButton>
 

@@ -11,36 +11,25 @@
 </h:head>
 <h:body>
 	<div id='centeredDiv'>
-		<h2 class="title-form-login">User page</h2>
+		<h2 class="title-form-login">Post details</h2>
 		<br />
 		<h:outputText value="Logged user: #{loginBean.loginDTO.username}" />
 		<br /> <br />
 
 		<h2>
-			<h:outputText value="Posts List"></h:outputText>
+			<h:outputText value="Post details"></h:outputText>
 		</h2>
-		<h:dataTable value="#{userBean.getPosts()}" var="p">
-			<h:column>
-				<f:facet name="header">Title</f:facet>
-				<h:outputText value="#{p.title}" />
-			</h:column>
-			
-			<h:column>
-				<f:facet name="header">Content</f:facet>
-				<h:outputText value="#{p.content}" />
-			</h:column>
 
-			<h:column>
-				<f:facet name="header">Open</f:facet>
-				<h:form label="openPostForm" class="form">
-					<h:commandButton class="btns" value="Click to open"
-						action="#{userBean.openPost(p.id)}">
-					</h:commandButton>
-				</h:form>
-			</h:column>
+		<h2>
+			<h:outputText value="#{postBean.getPostDTO().title}"></h:outputText>
+		</h2>
 
-		</h:dataTable>
+		<h2>
+			<h:outputText value="#{postBean.postDTO.content}"></h:outputText>
+		</h2>
 
+		<br />
+		
 		<h:form label="logoutForm" class="form">
 			<h:commandButton class="btns" value="Logout"
 				action="#{loginBean.logout}" />

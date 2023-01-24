@@ -13,14 +13,14 @@
 <h:body>
 	<div id='centeredDiv'>
 		<h2 class="title-form-login">Admin page</h2>
-		<h:outputText value="Logged user: #{loginBean.loginDTO.username}" />
+		<h:outputText value="Logged admin: #{loginBean.loginDTO.username}" />
 		<br /> <br />
-		
+
 		<h:form label="forgotPasswordForm" class="form">
 			<h:commandButton class="btns" value="Add post"
 				action="#{loginBean.changePassword}"></h:commandButton>
 		</h:form>
-		
+
 		<h:form label="forgotPasswordForm" class="form">
 			<h:commandButton class="btns" value="Delete posts"
 				action="#{loginBean.changePassword}"></h:commandButton>
@@ -30,12 +30,18 @@
 			<h:commandButton class="btns" value="Show my posts"
 				action="#{loginBean.changePassword}"></h:commandButton>
 		</h:form>
-				
+
 		<h:form label="forgotPasswordForm" class="form">
 			<h:commandButton class="btns" value="Show all posts"
 				action="#{loginBean.changePassword}"></h:commandButton>
 		</h:form>
-		
+
+		<h:form label="logoutForm" class="form">
+			<h:commandButton class="btns" value="Logout"
+				action="#{loginBean.logout}" />
+		</h:form>
+
+
 	</div>
 </h:body>
 </html>

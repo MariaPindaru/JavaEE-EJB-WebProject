@@ -44,7 +44,7 @@ public class ChangePasswordBean {
 			userDAORemote.updatePassword(changePasswordDTO);
 			facesContext.addMessage("changePassForm",
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Password changed successfully!", null));
-			return "success";
+			return "/index.xhtml?faces-redirect=true";
 		} catch (ChangePasswordException e) {
 			facesContext.addMessage("changePassForm",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));

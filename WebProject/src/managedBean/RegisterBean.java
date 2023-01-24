@@ -50,9 +50,7 @@ public class RegisterBean {
 		try {
 			userDTO = userDAORemote.registerUser(this.registerDTO);
 			facesContext.getExternalContext().getSessionMap().put("userDTO", userDTO);
-			// if userDTO is an admin
-			System.out.println("admin logged");
-			return "adminFilter/admin.xhtml?faces-redirect=true";
+			return "/index.xhtml?faces-redirect=true";
 
 		} catch (LoginException e) {
 			System.out.println("Invalid username or password");

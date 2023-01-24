@@ -35,6 +35,11 @@ public class PostDTO implements Serializable {
 		return content;
 	}
 
+	@Override
+	public String toString() {
+		return "PostDTO [id=" + id + ", title=" + title + ", content=" + content + ", writer=" + writer + "]";
+	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}

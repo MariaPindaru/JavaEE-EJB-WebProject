@@ -1,4 +1,7 @@
 @charset "ISO-8859-1";
+
+font-size: large;
+
 #centeredDiv {
     display: inline-block;
     position: fixed;

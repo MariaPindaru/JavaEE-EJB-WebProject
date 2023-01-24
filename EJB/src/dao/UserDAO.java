@@ -19,6 +19,7 @@ import dto.UserDTO;
 import exception.ChangePasswordException;
 import exception.LoginException;
 import model.User;
+import model.UserDetails;
 import util.DtoToEntity;
 import util.EntityToDto;
 
@@ -142,6 +143,12 @@ public class UserDAO implements UserDAORemote {
 		entityManager.persist(user);
 		
 		user = this.getUserByUsername(registerDTO.getUsername());
+		
+		UserDetails details = new UserDetails();
+		details.setIduser(user.getId());
+		details.setName(registerDTO.getName());
+		details.setRole("user");
+		entityManager.persist(details);
 		
 		UserDTO userDTO = entityToDTO.convertUser(user);
 		return userDTO;
