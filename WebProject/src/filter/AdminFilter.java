@@ -35,12 +35,6 @@ public class AdminFilter implements Filter {
 			System.out.println("regular user logged");
 			httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + USER_PAGE);			
 		}
-//		if (loginBean != null && loginBean.getUserDTO() != null) {
-//			System.out.println("admin logged");
-//			filterChain.doFilter(servletRequest, servletResponse);
-//		} else {
-//			httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + USER_PAGE);
-//		}
 	}
 
 	@Override

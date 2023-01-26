@@ -20,12 +20,12 @@
 			</h2>
 		<hr></hr>
 		<h3>
-			<h:outputText value="#{postBean.getPostDTO().title}"></h:outputText>
+			<h:outputText value="Title: #{postBean.getPostDTO().title}"></h:outputText>
 		</h3>
 
-		<h4>
-			<h:outputText value="#{postBean.postDTO.content}"></h:outputText>
-		</h4>
+		<p>
+			<h:outputText value="Content: #{postBean.postDTO.content}"></h:outputText>
+		</p>
 
 		<br />
 			<h:form label="logoutForm" class="form">

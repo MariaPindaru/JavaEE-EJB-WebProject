@@ -30,6 +30,7 @@
 					placeholder="Content" validatorMessage="Enter content"
 					value="#{postBean.postDTO.content}"></h:inputText>
 			</h:panelGrid>
+			<h:messages infoStyle="color:darkgreen" errorStyle="color:darkred"></h:messages>
 			<br/>
 			<h:commandButton class="btns" value="Save" action="#{postBean.Save}" />
 			<br />

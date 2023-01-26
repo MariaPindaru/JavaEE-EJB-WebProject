@@ -17,7 +17,7 @@
 			<h2 class="title-form-register">Register</h2>
 			<br />
 
-			<h:panelGrid columns="2">
+			<h:panelGrid columns="2" cellspacing = "1">
 				<h:outputLabel>Username:</h:outputLabel>
 				<h:inputText class="effect-input" required="true" label="Username"
 					placeholder="Username" validatorMessage="Enter username"
@@ -28,7 +28,7 @@
 					placeholder="Name" validatorMessage="Enter name"
 					value="#{registerBean.registerDTO.name}"></h:inputText>
 
-				<h:outputLabel>Passwprd:</h:outputLabel>
+				<h:outputLabel>Password:</h:outputLabel>
 				<h:inputSecret class="effect-input" label="Password" required="true"
 					placeholder="Password" validatorMessage="Enter password"
 					value="#{registerBean.registerDTO.password}"></h:inputSecret>
